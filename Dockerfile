@@ -13,8 +13,8 @@ RUN  apt-get  update && \
 WORKDIR /tmp
 RUN git clone git://github.com/elasticsearch/logstash-forwarder.git && \
    cp logstash-forwarder && \
-   go build && \
    ls && \
+   go build && \
    cp -R build /opt/logstash-forwarder && \
    cp logstash-forwarder.init /etc/init.d/logstash-forwarder
 
