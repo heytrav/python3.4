@@ -5,7 +5,7 @@ RUN  apt-get  update && \
   apt-get -qy install -y libncurses5-dev \
     python3.4-dev python3-pip libpgm-5.1-0 libzmq-dev libzmq3 git supervisor rsyslog collectd && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/* /var/tmp/*
 
 
 # set up logstash forwarding
@@ -17,6 +17,7 @@ RUN tar -xzf go1.4.1.linux-amd64.tar.gz && mv go /usr/local/go && export PATH=$P
    go build && \
    cp -R build /opt/logstash-forwarder && \
    cp logstash-forwarder.init /etc/init.d/logstash-forwarder
+
 
 RUN sed -i 's/$ActionFileDefaultTemplate/#$ActionFileDefaultTemplate/' /etc/rsyslog.conf
 RUN sed -i 's/\#LoadPlugin network/LoadPlugin network/' /etc/collectd/collectd.conf
