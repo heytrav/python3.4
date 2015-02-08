@@ -2,19 +2,19 @@ FROM ubuntu:trusty
 MAINTAINER Travis Holton <travis@ideegeo.com>
 
 RUN  apt-get  update && \
+  apt-get -qy install wget --no-install-recommends && \
   apt-get -qy install -y libncurses5-dev \
-    python3.4-dev python3-pip libpgm-5.1-0 libzmq-dev libzmq3 git supervisor rsyslog collectd && \
+    python3.4-dev python3-pip golang libpgm-5.1-0 libzmq-dev libzmq3 git supervisor rsyslog collectd && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /var/tmp/*
 
 
 # set up logstash forwarding
-WORKDIR /usr/local
-ADD https://storage.googleapis.com/golang/go1.4.1.linux-amd64.tar.gz .
-RUN tar -xzf go1.4.1.linux-amd64.tar.gz && export PATH=$PATH:/usr/local/go/bin && \
-   git clone git://github.com/elasticsearch/logstash-forwarder.git && \
-   cd logstash-forwarder && \
+WORKDIR /tmp
+RUN git clone git://github.com/elasticsearch/logstash-forwarder.git && \
+   cp logstash-forwarder && \
    go build && \
+   ls && \
    cp -R build /opt/logstash-forwarder && \
    cp logstash-forwarder.init /etc/init.d/logstash-forwarder
 
