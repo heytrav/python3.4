@@ -12,7 +12,7 @@ RUN  apt-get  update && \
 # set up logstash forwarding
 WORKDIR /tmp
 RUN git clone git://github.com/elasticsearch/logstash-forwarder.git && \
-   cp logstash-forwarder && \
+   cd logstash-forwarder && \
    ls && \
    go build && \
    cp -R build /opt/logstash-forwarder && \
