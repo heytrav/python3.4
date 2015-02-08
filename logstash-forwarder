@@ -1,0 +1,17 @@
+{
+  "network": {
+    "servers": [
+        "172.17.8.102:5004"
+    ],
+    "timeout": 15,
+    "ssl ca": "/data/logstash/certs/logstash-forwarder.crt"
+  },
+  "files": [
+    {
+      "paths": [
+        "/var/log/syslog"
+      ],
+      "fields": {"type": "syslog"}
+    }
+  ]
+}
