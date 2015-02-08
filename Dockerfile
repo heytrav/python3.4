@@ -11,7 +11,7 @@ RUN  apt-get  update && \
 # set up logstash forwarding
 WORKDIR /usr/local
 ADD https://storage.googleapis.com/golang/go1.4.1.linux-amd64.tar.gz .
-RUN tar -xzf go1.4.1.linux-amd64.tar.gz && mv go /usr/local/go && export PATH=$PATH:/usr/local/go/bin && \
+RUN tar -xzf go1.4.1.linux-amd64.tar.gz && export PATH=$PATH:/usr/local/go/bin && \
    git clone git://github.com/elasticsearch/logstash-forwarder.git && \
    cd logstash-forwarder && \
    go build && \
