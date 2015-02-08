@@ -3,17 +3,18 @@ MAINTAINER Travis Holton <travis@ideegeo.com>
 
 # set up logstash forwarding
 
-RUN apt-get -qy install  ca-certificates wget --no-install-recommends && \
-  wget -qO - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add - && \
-  echo 'deb http://packages.elasticsearch.org/logstashforwarder/debian stable main' | \
-       tee /etc/apt/sources.list.d/logstashforwarder.list && \
-  apt-get -qq update && \
-  apt-get -qy install  logstash-forwarder
 
-WORKDIR /etc/init.d
-RUN \
-    wget https://raw.github.com/elasticsearch/logstash-forwarder/master/logstash-forwarder.init \
-    -O logstash-forwarder
+
+WORKDIR /usr/local
+ADD https://storage.googleapis.com/golang/go1.4.1.linux-amd64.tar.gz .
+RUN export PATH=$PATH:/usr/local/go/bin && \
+   cd /tmp && \
+   git clone git://github.com/elasticsearch/logstash-forwarder.git && \
+   cd logstash-forwarder && \
+   go build && \
+   cp -R build /opt/logstash-forwarder && \
+   cp logstash-forwarder.init /etc/init.d/logstash-forwarder
+
 
 RUN  apt-get  update && \
   apt-get -qy install -y libncurses5-dev \
