@@ -1,10 +1,14 @@
 FROM ubuntu:trusty
 MAINTAINER Travis Holton <travis@ideegeo.com>
 
+RUN  apt-get  update && \
+  apt-get -qy install -y libncurses5-dev \
+    python3.4-dev python3-pip libpgm-5.1-0 libzmq-dev libzmq3 git supervisor rsyslog collectd && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
 # set up logstash forwarding
-
-
-
 WORKDIR /usr/local
 ADD https://storage.googleapis.com/golang/go1.4.1.linux-amd64.tar.gz .
 RUN export PATH=$PATH:/usr/local/go/bin && \
@@ -14,13 +18,6 @@ RUN export PATH=$PATH:/usr/local/go/bin && \
    go build && \
    cp -R build /opt/logstash-forwarder && \
    cp logstash-forwarder.init /etc/init.d/logstash-forwarder
-
-
-RUN  apt-get  update && \
-  apt-get -qy install -y libncurses5-dev \
-    python3.4-dev python3-pip libpgm-5.1-0 libzmq-dev libzmq3 git supervisor rsyslog collectd && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN sed -i 's/$ActionFileDefaultTemplate/#$ActionFileDefaultTemplate/' /etc/rsyslog.conf
 RUN sed -i 's/\#LoadPlugin network/LoadPlugin network/' /etc/collectd/collectd.conf
