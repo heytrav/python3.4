@@ -27,7 +27,7 @@ RUN  \
    mv logstash-forwarder /opt/logstash-forwarder/bin/ && \
    mv logstash-forwarder.sh /opt/logstash-forwarder/bin/ && \
    mv logstash-forwarder.init /etc/init.d/logstash-forwarder && \
-   apt-get -y remove git golang && \
+   apt-get -y remove golang && \
    apt-get -y autoremove && \
    apt-get autoclean
 
