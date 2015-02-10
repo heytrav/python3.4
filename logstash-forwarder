@@ -1,7 +1,7 @@
 {
   "network": {
     "servers": [
-        "172.17.8.102:5004"
+        "LUMBERJACK_SERVICE_HOST:LUMBERJACK_SERVICE_PORT"
     ],
     "timeout": 15,
     "ssl ca": "/data/logstash/certs/logstash-forwarder.crt"
