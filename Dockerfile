@@ -14,6 +14,7 @@ RUN  apt-get  update && \
     supervisor \
     rsyslog \
     collectd \
+    inotify-tools \
     golang 
 
 
