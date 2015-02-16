@@ -15,7 +15,8 @@ RUN  apt-get  update && \
     rsyslog \
     collectd \
     inotify-tools \
-    golang 
+    golang  \
+    curl
 
 
 # set up logstash forwarding
