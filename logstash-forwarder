@@ -1,7 +1,9 @@
 {
   "network": {
     "servers": [
-        "LUMBERJACK_SERVICE_HOST:LUMBERJACK_SERVICE_PORT"
+        "LUMBERJACK_SERVICE_HOST:LUMBERJACK_SERVICE_PORT",
+        "LUMBERJACK_HOST:LUMBERJACK_SERVICE_PORT",
+        "lumberjack:LUMBERJACK_SERVICE_PORT"
     ],
     "timeout": 15,
     "ssl ca": "/data/logstash/client.crt"
