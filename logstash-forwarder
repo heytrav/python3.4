@@ -4,7 +4,7 @@
         "LUMBERJACK_SERVICE_HOST:LUMBERJACK_SERVICE_PORT"
     ],
     "timeout": 15,
-    "ssl ca": "/data/logstash/certs/logstash-forwarder.crt"
+    "ssl ca": "/data/logstash/client.crt"
   },
   "files": [
     {
