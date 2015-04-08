@@ -13,7 +13,8 @@ RUN  apt-get  update && \
     supervisor \
     collectd \
     inotify-tools \
-    curl
+    curl && \
+    apt-get clean
 
 
 
