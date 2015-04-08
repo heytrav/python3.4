@@ -2,7 +2,6 @@ FROM ubuntu:trusty
 MAINTAINER Travis Holton <travis@ideegeo.com>
 
 RUN  apt-get  update && \
-  apt-get -qy install wget --no-install-recommends && \
   apt-get -qy install -y \
     libncurses5-dev \
     python3.4-dev \
