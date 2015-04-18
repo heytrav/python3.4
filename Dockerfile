@@ -15,5 +15,3 @@ RUN  apt-get  update && \
     apt-get clean
 
 
-
-ADD supervisor/ /etc/supervisor/conf.d/
