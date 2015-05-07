@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM debian:latest
 MAINTAINER Travis Holton <travis@ideegeo.com>
 
 RUN  apt-get  update && \
