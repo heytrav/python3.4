@@ -15,3 +15,4 @@ RUN  apt-get  update && \
     apt-get clean
 
 
+RUN sed -i 's/$ActionFileDefaultTemplate/#$ActionFileDefaultTemplate/' /etc/rsyslog.conf
