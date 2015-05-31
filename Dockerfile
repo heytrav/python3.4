@@ -15,4 +15,4 @@ RUN  apt-get  update && \
     apt-get clean
 
 
-RUN sed -i 's/$ActionFileDefaultTemplate/#$ActionFileDefaultTemplate/' /etc/rsyslog.conf
+RUN sed -i 's/RSYSLOG_TraditionalFileFormat/RSYSLOG_ForwardFormat/' /etc/rsyslog.conf
