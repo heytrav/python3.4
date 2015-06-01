@@ -13,6 +13,3 @@ RUN  apt-get  update && \
     inotify-tools \
     curl && \
     apt-get clean
-
-
-RUN sed -i 's/$ActionFileDefaultTemplate/#$ActionFileDefaultTemplate/' /etc/rsyslog.conf
