@@ -1,4 +1,4 @@
-FROM quay.io/heytrav/logstash-forwarder:v0.2.3
+FROM quay.io/heytrav/logstash-forwarder:v0.2.4
 MAINTAINER Travis Holton <travis@ideegeo.com>
 
 RUN  apt-get  update && \
