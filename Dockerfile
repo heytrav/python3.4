@@ -18,4 +18,3 @@ RUN  apt-get  update && \
     curl && \
     apt-get clean
 
-RUN cp /etc/dd-agent/supervisor.conf /etc/supervisor/conf.d/datadog.conf
